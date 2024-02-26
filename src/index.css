@@ -6,14 +6,11 @@ body {
   margin: 0;
 }
 
-.button {
-  width: 150px;
-  height: 150px;
-  border-radius: 12%;
-  -webkit-user-select: none; /* Chrome/Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+ */
-  user-select: none; /* Standard syntax */
+.experiment-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 16px 0;
 }
 
 .ml-50 {
