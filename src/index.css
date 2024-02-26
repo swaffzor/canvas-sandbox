@@ -1,0 +1,82 @@
+body {
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+  user-select: none; /* Standard syntax */
+  margin: 0;
+}
+
+.button {
+  width: 150px;
+  height: 150px;
+  border-radius: 12%;
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+  user-select: none; /* Standard syntax */
+}
+
+.ml-50 {
+  margin-left: 150px;
+}
+
+.ml-46 {
+  margin-left: 146px;
+}
+
+#myCanvas {
+  /* width: 100%;
+  height: 100%; */
+  image-rendering: pixelated;
+  transform-origin: calc(50% - 1px) calc(50% - 1px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.25);
+}
+
+.dpad {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-left: 16px;
+  margin-bottom: 16px;
+}
+
+.mr-16 {
+  margin-right: 16px;
+}
+
+.mt-16 {
+  margin-top: 16px;
+}
+
+.score {
+  text-align: end;
+  &.container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: white;
+    padding: 4px;
+  }
+}
+
+#banner {
+  color: rgb(191, 49, 167);
+  font-size: 3rem;
+  font-weight: bold;
+  /* add a shadow */
+  text-shadow: 2px 2px 4px #000000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  width: 100%;
+  background-color: white;
+  text-align: center;
+  &.show {
+    display: block;
+  }
+}
