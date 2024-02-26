@@ -6,9 +6,7 @@
     <link rel="stylesheet" type="text/css" href="index.css" />
   </head>
   <body>
-    <canvas id="myCanvas">
-      Your browser does not support the HTML canvas tag.
-    </canvas>
+    <canvas id="myCanvas"> Your browser does not support the HTML canvas tag. </canvas>
 
     <div class="score container mr-16 mt-16">
       <div>
@@ -22,8 +20,19 @@
       </div>
     </div>
 
+    <div class="dpad" id="dpad">
+      <button class="button ml-50" id="button-up">w</button>
+      <div>
+        <button class="button" id="button-left">a</button>
+        <button class="button" id="button-down">s</button>
+        <button class="button" id="button-right">d</button>
+        <button class="button ml-50" id="button-enter">Enter</button>
+      </div>
+    </div>
+
     <h1 id="banner" class="hide">you win</h1>
 
+    <script src="keys.js"></script>
     <script src="index.js"></script>
   </body>
 </html>
