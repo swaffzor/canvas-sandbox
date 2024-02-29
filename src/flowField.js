@@ -55,10 +55,16 @@ class FlowField {
     const deltaTime = timeStamp - this.lastTime
     this.lastTime = timeStamp
     if (this.timer > this.interval) {
-      this.timer = 0
-      this.angle += 0.1
       this.#ctx.clearRect(0, 0, this.#width, this.#height)
-      this.#drawLine(this.#width / 2 + Math.sin(this.angle) * 100, this.#height / 2 + Math.cos(this.angle) * 100)
+
+      for (let y = 0; y < this.#height; y += this.cellSize) {
+        for (let x = 0; x < this.#width; x += this.cellSize) {
+          this.#drawLine(x, y)
+
+        }
+      }
+
+      this.timer = 0
     } else {
       this.timer += deltaTime
     }
