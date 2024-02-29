@@ -9,7 +9,7 @@ window.onload = () => {
   canvas.width = window.innerWidth
   canvas.height = window.innerHeight
   flowField = new FlowField(ctx, canvas.width, canvas.height)
-  flowField.animate()
+  flowField.animate(0)
 }
 
 window.addEventListener('resize', () => {
@@ -17,7 +17,7 @@ window.addEventListener('resize', () => {
   canvas.width = window.innerWidth
   canvas.height = window.innerHeight
   flowField = new FlowField(ctx, canvas.width, canvas.height)
-  flowField.animate()
+  flowField.animate(0)
 })
 
 const mouse = {
@@ -27,7 +27,6 @@ const mouse = {
 window.addEventListener('mousemove', (event) => {
   mouse.x = event.x
   mouse.y = event.y
-  console.log('mouse', mouse)
 })
 
 class FlowField {
@@ -41,8 +40,11 @@ class FlowField {
     this.#height = height
     this.angle = 0
     this.lastTime = 0
+    this.interval = 1000 / 60 // 60 fps
+    this.timer = 0
+    this.cellSize = 15
   }
-  #draw(x, y) {
+  #drawLine(x, y) {
     const length = 300
     this.#ctx.beginPath()
     this.#ctx.moveTo(x, y)
@@ -52,9 +54,14 @@ class FlowField {
   animate(timeStamp) {
     const deltaTime = timeStamp - this.lastTime
     this.lastTime = timeStamp
-    this.angle += 0.1
-    // this.#ctx.clearRect(0, 0, this.#width, this.#height)
-    this.#draw(this.#width / 2 + Math.sin(this.angle) * 100, this.#height / 2 + Math.cos(this.angle) * 100)
+    if (this.timer > this.interval) {
+      this.timer = 0
+      this.angle += 0.1
+      this.#ctx.clearRect(0, 0, this.#width, this.#height)
+      this.#drawLine(this.#width / 2 + Math.sin(this.angle) * 100, this.#height / 2 + Math.cos(this.angle) * 100)
+    } else {
+      this.timer += deltaTime
+    }
     // console.log('animate')
     flowFieldAnimation = requestAnimationFrame(this.animate.bind(this))
   }
