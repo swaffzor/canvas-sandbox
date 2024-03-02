@@ -1,0 +1,14 @@
+canvas {
+  position: absolute;
+  background: black;
+  top: 0;
+  left: 0;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+  padding: 4px;
+}
